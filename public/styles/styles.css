@@ -19,6 +19,8 @@ body {
 }
 
 .main-container {
+  position: relative;
+
   width: 320px;
   height: 640px;
   border-radius: 36px;
@@ -30,7 +32,8 @@ body {
 
 .main-container header,
 .main-container section {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .main-container section:nth-child(2) {
@@ -115,6 +118,7 @@ body {
 .chats {
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
   gap: 4px;
 }
 
@@ -179,4 +183,18 @@ body {
 
   /*Align to the right*/
   align-self: flex-end;
+}
+
+.write {
+  display: grid;
+  place-content: center;
+
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  background-color: var(--green);
+  padding: 0.8em;
+  border-radius: 50%;
+
+  box-shadow: 2px 2px 8px #a8a8a8;
 }
