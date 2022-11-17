@@ -1,0 +1,182 @@
+:root {
+  --brown: #333230;
+  --green: #29c1a7;
+  --light-green: #effffc;
+  --white: #fff;
+  --gray: #94a19b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  display: grid;
+  height: 100vh;
+  place-content: center;
+}
+
+.main-container {
+  width: 320px;
+  height: 640px;
+  border-radius: 36px;
+  background: var(--brown);
+
+  display: grid;
+  grid-template-rows: 0.8fr 1fr 2fr;
+}
+
+.main-container header,
+.main-container section {
+  overflow: hidden;
+}
+
+.main-container section:nth-child(2) {
+  background-color: var(--green);
+  border-radius: 32px;
+  grid-row: 2 / span 2; /*Empieza en la segunda filay ocupa dos filas*/
+  grid-column: 1 / 2; /* Para evitar crear otra columna */
+}
+
+.main-container section:nth-child(3) {
+  background-color: var(--light-green);
+  border-radius: 32px;
+  grid-row: 3 / span 1;
+  grid-column: 1 / 2; /* Para evitar crear otra columna*/
+}
+
+.main-container section {
+  padding: 0px 20px;
+}
+
+.section-subtitle {
+  color: white;
+  font-weight: bold;
+}
+
+.main-container nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.navigation {
+  padding: 20px;
+  list-style: none;
+  display: flex;
+  color: var(--white);
+  margin: 0;
+}
+
+.navigation__item {
+  margin-right: 36px;
+  font-size: 1.4rem;
+  color: var(--gray);
+}
+
+.navigation__item:nth-child(1) {
+  font-weight: bold;
+  color: var(--white);
+}
+
+/* Favorite contacts section */
+.contacts {
+  display: flex;
+  gap: 8px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact__image,
+.chat__image {
+  /*Make the images rounded*/
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.contact__image {
+  border: 4px solid var(--white);
+}
+
+.contact__name {
+  color: white;
+  margin: 8px 0;
+}
+
+/* Chats section */
+.chats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.chat p {
+  /* Reset default styles*/
+  margin: 2px;
+}
+
+.chat {
+  margin-block: 8px;
+  display: grid;
+  /*
+  64: Image zise
+  150: Aproximated width
+  44: Right column desired width
+  */
+  grid-template-columns: 64px 150px 44px;
+  gap: 8px;
+}
+
+.chat__preview,
+.chat__details {
+  display: flex;
+  padding: 8px 0;
+  /*Row separation*/
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chat__details {
+  text-align: right;
+}
+
+.chat__name {
+  color: var(--gray);
+}
+
+.chat__message {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chat__time,
+.chat__notification {
+  font-size: 0.8rem;
+}
+
+.chat__notification {
+  color: white;
+  background-color: var(--green);
+
+  /*Just take the needed width*/
+  width: max-content;
+  padding: 1px;
+
+  /* Make it rounded */
+  border-radius: 50%;
+  aspect-ratio: 1;
+  text-align: center;
+
+  /*Align to the right*/
+  align-self: flex-end;
+}
